@@ -122,6 +122,114 @@ class DeveloperPreview {
              ),
         ]
 
+    var companies: [Company] = [
+        .init(
+            id: UUID().uuidString,
+            name: "Metro Paving & Excavation",
+            logoImageName: "listing-1",
+            hqCity: "Newark",
+            hqState: "New Jersey",
+            website: "https://example.com/metro",
+            sectors: ["Heavy Civil", "Utilities"],
+            projectTypes: ["Roadwork", "Sewer", "Site Prep"],
+            bulldozerProfileURL: "https://bulldozer.example/metro",
+            riskScore: 7.8,
+            lastUpdated: Date(),
+            imageURLs: ["listing-1", "listing-2", "listing-4"]
+        ),
+        .init(
+            id: UUID().uuidString,
+            name: "Hudson Steel & Crane",
+            logoImageName: "listing-3",
+            hqCity: "Jersey City",
+            hqState: "New Jersey",
+            website: "https://example.com/hudson",
+            sectors: ["Structural Steel", "Cranes"],
+            projectTypes: ["High-Rise", "Industrial"],
+            bulldozerProfileURL: "https://bulldozer.example/hudson",
+            riskScore: 6.3,
+            lastUpdated: Date(),
+            imageURLs: ["listing-3", "listing-6"]
+        ),
+        .init(
+            id: UUID().uuidString,
+            name: "Empire Transit Builders",
+            logoImageName: "listing-5",
+            hqCity: "Brooklyn",
+            hqState: "New York",
+            website: "https://example.com/empire",
+            sectors: ["Transit", "Rail"],
+            projectTypes: ["Stations", "Track", "Tunnels"],
+            bulldozerProfileURL: "https://bulldozer.example/empire",
+            riskScore: 8.9,
+            lastUpdated: Date(),
+            imageURLs: ["listing-5", "listing-7", "listing-8"]
+        )
+    ]
+
+    lazy var intelFeed: [IntelItem] = {
+        let companies = self.companies
+        let c0 = companies[0].id
+        let c1 = companies[1].id
+        let c2 = companies[2].id
+        return [
+            .init(
+                id: UUID().uuidString,
+                companyId: c2,
+                title: "MTA board advances Brooklyn station rehab bid",
+                summary: "Capital plan item moves to procurement; potential scope includes crane-heavy weekend outages.",
+                sourceURL: "https://mta.gov/news/example",
+                sourceType: .gov,
+                publishedAt: Date().addingTimeInterval(-60*60*12),
+                tags: ["Transit", "Procurement", "Brooklyn"],
+                sentiment: 0.2,
+                reliabilityScore: 0.95
+            ),
+            .init(
+                id: UUID().uuidString,
+                companyId: c0,
+                title: "Newark awards sewer upgrade pre-construction",
+                summary: "City council minutes note notice to proceed expected next month.",
+                sourceURL: "https://newarknj.gov/council/minutes",
+                sourceType: .gov,
+                publishedAt: Date().addingTimeInterval(-60*60*24*2),
+                tags: ["Utilities", "Sewer", "Newark"],
+                sentiment: 0.1,
+                reliabilityScore: 0.9
+            ),
+            .init(
+                id: UUID().uuidString,
+                companyId: c1,
+                title: "Steel deliveries tighten as demand surges in Hudson County",
+                summary: "Trade publication reports multi-month backlog; crane rental rates rising.",
+                sourceURL: "https://news.example/steel-hudson",
+                sourceType: .news,
+                publishedAt: Date().addingTimeInterval(-60*60*6),
+                tags: ["Steel", "Cranes", "Supply Chain"],
+                sentiment: -0.3,
+                reliabilityScore: 0.7
+            )
+        ]
+    }()
+
+    lazy var aiInsights: [IntelItem] = {
+        let companies = self.companies
+        return [
+            .init(
+                id: UUID().uuidString,
+                companyId: companies[2].id,
+                title: "Opportunity: Empire likely bidder on Brooklyn station rehab",
+                summary: "Based on past awards, scope fit, and geography, probability of participation ~72%.",
+                sourceURL: "https://intel.ai/generated",
+                sourceType: .ai,
+                publishedAt: Date().addingTimeInterval(-60*30),
+                tags: ["Opportunity", "Brooklyn", "Transit"],
+                sentiment: 0.4,
+                reliabilityScore: 0.6
+            )
+        ]
+    }()
+
         
         
         

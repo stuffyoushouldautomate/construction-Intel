@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct AirBnbTutorialApp: App {
+struct ConstructionIntelApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
