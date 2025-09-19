@@ -14,6 +14,8 @@ struct MainTabView: View {
                 .tabItem { Label("Companies", systemImage: "building.2") }
             IntelFeedView()
                 .tabItem { Label("Intel", systemImage: "newspaper") }
+            NavigationStack { ChatView() }
+                .tabItem { Label("Chat", systemImage: "bubble.left.and.text.bubble.right") }
             ProfileView()
                 .tabItem { Label("Settings", systemImage: "gear") }
         }
