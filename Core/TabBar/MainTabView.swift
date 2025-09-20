@@ -10,12 +10,14 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            ExploreView()
-                .tabItem { Label("Explore", systemImage: "magnifyingglass") }
-            WishlistsView()
-                .tabItem { Label("Wishlists", systemImage: "heart") }
+            CompaniesView()
+                .tabItem { Label("Companies", systemImage: "building.2") }
+            IntelFeedView()
+                .tabItem { Label("Intel", systemImage: "newspaper") }
+            NavigationStack { ChatView() }
+                .tabItem { Label("Chat", systemImage: "bubble.left.and.text.bubble.right") }
             ProfileView()
-                .tabItem { Label("Profile", systemImage: "person") }
+                .tabItem { Label("Settings", systemImage: "gear") }
         }
     }
 }
